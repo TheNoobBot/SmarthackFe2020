@@ -10,8 +10,8 @@
 
     <div class="col-auto">
       <label class="sr-only" for="concentration">Username</label>
-      <input *ngIf="!added; else CompFirst" type="text" class="form-control mb-2" formControlName="concentration" id="concentration" placeholder="concentratie(mg.)">
-      <ng-template #CompFirst>
+      <input *ngIf="!added; else CompSecond" type="text" class="form-control mb-2" formControlName="concentration" id="concentration" placeholder="concentratie(mg.)">
+      <ng-template #CompSecond>
         <input type="text" class="form-control mb-2"  disabled value="{{medication.concentration}}">
       </ng-template>
     </div>
