@@ -1,49 +1,49 @@
-<div class="col-md-6 offset-md-3 mt-5">
-  <div class="card">
-    <h4 class="card-header">HomePharma - Inregistrare</h4>
-    <div class="card-body">
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="us">CNP</label>
-          <input type="text" formControlName="cnp" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f.cnp.errors }"/>
-          <div *ngIf="submitted && f.cnp.errors" class="invalid-feedback">
-            <div *ngIf="f.cnp.errors.required">CNP-ul este obligatoriu</div>
+  <div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+      <h4 class="card-header">HomePharma - Inregistrare</h4>
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="us">CNP</label>
+            <input type="text" formControlName="cnp" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.cnp.errors }"/>
+            <div *ngIf="submitted && f.cnp.errors" class="invalid-feedback">
+              <div *ngIf="f.cnp.errors.required">CNP-ul este obligatoriu</div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="password">Parola</label>
-          <input type="password" formControlName="password" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
-          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Parola este obligatorie</div>
+          <div class="form-group">
+            <label for="password">Parola</label>
+            <input type="password" formControlName="password" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Parola este obligatorie</div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="address">Adresa de livrare</label>
-          <input type="text" formControlName="address" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f.address.errors }"/>
-          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
-            <div *ngIf="f.address.errors.required">Adresa este obligatorie!</div>
+          <div class="form-group">
+            <label for="address">Adresa de livrare</label>
+            <input type="text" formControlName="address" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.address.errors }"/>
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+              <div *ngIf="f.address.errors.required">Adresa este obligatorie!</div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" formControlName="email" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
-          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.emails.errors.required">Email is required</div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" formControlName="email" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.emails.errors.required">Email is required</div>
+            </div>
           </div>
-        </div>
-        <button [disabled]="loading" class="btn btn-primary">
-          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          Inregistrare
-        </button>
+          <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Inregistrare
+          </button>
 
 
-        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-      </form>
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </form>
 
+      </div>
     </div>
   </div>
-</div>

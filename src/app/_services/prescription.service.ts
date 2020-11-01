@@ -14,7 +14,7 @@ export class PrescriptionService {
     private http: HttpClient,
     private authService: AuthenticationService,
   ) {
-    this.URL = this.URL + '/prescriptions/' + this.authService.currentUserValue.cnp;
+    this.URL = this.URL + '/prescription/' + this.authService.currentUserValue.cnp;
 
   }
 

@@ -1,3 +1,6 @@
+<div *ngIf="!prescriptions" class="alert alert-warning" role="alert">
+  Nu aveti retete in acest moment!
+</div>
 <div class="container py-5 bg-faded">
   <div class="card-columns">
     <div *ngFor="let prescription of prescriptions" class="card">

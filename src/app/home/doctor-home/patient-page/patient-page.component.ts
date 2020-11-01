@@ -26,7 +26,11 @@ export class PatientPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
+<<<<<<< HEAD
       this.userService.getPatient(params.patientCNP).subscribe((patient: Patient) => {
+=======
+      this.userService.searchPatients(params.patientId).subscribe((patient: Patient) => {
+>>>>>>> origin/master
         this.patient = patient;
         this.cdr.detectChanges();
       });
