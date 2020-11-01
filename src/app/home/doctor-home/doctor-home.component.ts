@@ -14,15 +14,19 @@ export class DoctorHomeComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-  ) { }
+  ) {
+    console.log('sdjkhcskdjchskdjchsdc');
+  }
 
   ngOnInit(): void {
     this.userService.getPatientsForDoctor().subscribe((patients: Patient[]) => {
       this.patients = patients;
     });
+
   }
 
   goto(patient: Patient) {
+    console.log('fuck you you piece of shit');
     this.router.navigate(['user'], { queryParams: { patientCNP: patient.cnp } });
   }
 }
