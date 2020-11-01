@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {User} from '../domain/user.model';
+import {RegistrationDetails} from '../domain/registration-details';
+import {Router} from '@angular/router';
 
 
 @Injectable({ providedIn: 'root' })
@@ -13,7 +15,7 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -29,6 +31,14 @@ export class AuthenticationService {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         return user;
+      }));
+  }
+
+  register(registrationDetails: RegistrationDetails) {
+    return this.http.post<any>(this.URL, registrationDetails)
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        this.router.navigate(['']);
       }));
   }
 

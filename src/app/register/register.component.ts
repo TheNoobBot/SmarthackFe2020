@@ -3,11 +3,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import {AuthenticationService} from '../_services/authentication.service';
+import {RegistrationDetails} from '../domain/registration-details';
 
 
-@Component({ templateUrl: 'login.component.html' })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+@Component({ templateUrl: 'register.component.html' })
+export class RegisterComponent implements OnInit {
+  registerForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -26,9 +27,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       cnp: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      address: ['', Validators.required],
+      email: ['', Validators.required],
     });
 
     // get return url from route parameters or default to '/'
@@ -36,19 +39,19 @@ export class LoginComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.loginForm.invalid) {
+    if (this.registerForm.invalid) {
       return;
     }
 
     this.loading = true;
     console.log(this.f.cnp.value);
-    this.authenticationService.login(this.f.cnp.value, this.f.password.value)
+    this.authenticationService.register(this.getRegisterDetails())
       .pipe(first())
       .subscribe(
         data => {
@@ -58,5 +61,21 @@ export class LoginComponent implements OnInit {
           this.error = error;
           this.loading = false;
         });
+  }
+
+  private getRegisterDetails(): RegistrationDetails {
+    const registrationDetails = new RegistrationDetails();
+
+    registrationDetails.cnp = this.f.cnp.value;
+    registrationDetails.password = this.f.password.value;
+    registrationDetails.email = this.f.email.value;
+    registrationDetails.address = this.f.address.value;
+    registrationDetails.login = this.f.cnp.value;
+
+    return registrationDetails;
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['']);
   }
 }

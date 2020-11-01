@@ -1,8 +1,8 @@
 <div class="col-md-6 offset-md-3 mt-5">
   <div class="card">
-    <h4 class="card-header">HomePharma - Intra in Cont</h4>
+    <h4 class="card-header">HomePharma - Inregistrare</h4>
     <div class="card-body">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="username">CNP</label>
           <input type="text" formControlName="username" class="form-control"
@@ -21,15 +21,9 @@
         </div>
         <button [disabled]="loading" class="btn btn-primary">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          Intra in cont
+          Intra in Cont
         </button>
 
-        <a href="/register">
-          <div class="btn">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Inregistrare
-          </div>
-        </a>
 
         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
       </form>
