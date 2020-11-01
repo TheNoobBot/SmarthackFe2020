@@ -21,7 +21,8 @@ export class AuthenticationService {
   }
 
   public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+    return {id: 10000, cnp: '55555', firstName: 'meh', lastName: 'meh', password: '12345', isDoctor: false};
+    // return this.currentUserSubject.value;
   }
 
   login(username: string, password: string) {
