@@ -17,4 +17,6 @@ export class UserService {
   isUserDoctor(cnp: string): Observable<any>{
     return this.http.get(this.URL + '/users/' + cnp);
   }
+
+
 }
