@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import { PatientComponentComponent } from './components/patient-component/patient-component.component';
 import { PatientPageComponent } from './home/doctor-home/patient-page/patient-page.component';
+import { TableElementComponent } from './components/table-element/table-element.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { PatientPageComponent } from './home/doctor-home/patient-page/patient-pa
     RegisterComponent,
     NavbarComponent,
     PatientComponentComponent,
-    PatientPageComponent
+    PatientPageComponent,
+    TableElementComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

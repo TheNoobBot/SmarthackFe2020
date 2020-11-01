@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Patient} from '../../../domain/user.model';
+import {UserService} from '../../../_services/user.service';
+import {Medicine} from '../../../domain/medicine.model';
 
 @Component({
   selector: 'app-patient-page',
@@ -6,10 +10,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-page.component.css']
 })
 export class PatientPageComponent implements OnInit {
+  public patient: Patient;
+  public medications: Medicine[];
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService,
+  ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.userService.getPatient(params.patientId).subscribe((patient: Patient) => {
+        this.patient = patient;
+      });
+    });
   }
 
+  public addMed(med: Medicine): void {
+    this.medications.push(med);
+  }
 }

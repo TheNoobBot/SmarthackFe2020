@@ -22,4 +22,8 @@ export class UserService {
   isUserDoctor(cnp: string): Observable<any>{
     return this.http.get(this.URL + '/users/' + this.authService.currentUserValue.cnp);
   }
+
+  getPatient(id: string) {
+    return this.http.get(this.URL + '/users/' + id);
+  }
 }

@@ -1,0 +1,27 @@
+<form [formGroup]="medicationForm" (ngSubmit)="emit()">
+  <div class="form-row align-items-center">
+
+    <div class="col-auto">
+      <label class="sr-only" for="name" disabled="{{added}}">Name</label>
+      <input type="text" class="form-control mb-2" formControlName="name" id="name" placeholder="Denumire">
+    </div>
+
+    <div class="col-auto">
+      <label class="sr-only" for="concentration" disabled="{{added}}">Username</label>
+      <input type="text" class="form-control" formControlName="concentration" id="concentration" placeholder="concentratie(mg.)">
+    </div>
+
+    <div class="col-auto" *ngIf="!added" (click)="emit()">
+      <button type="submit" class="btn btn-primary mb-2">
+        <img src="../../../assets/images/check.svg"/>
+      </button>
+    </div>
+
+    <div class="col-auto" *ngIf="added">
+      <button type="submit" class="btn btn-primary mb-2">
+        <img src="../../../assets/images/close.svg"/>
+      </button>
+    </div>
+
+  </div>
+</form>

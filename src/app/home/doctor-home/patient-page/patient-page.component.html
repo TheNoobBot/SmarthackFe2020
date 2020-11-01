@@ -1,1 +1,14 @@
-<p>patient-page works!</p>
+<p>{{patient.firstName + " " + patient.lastName}}</p>
+<p>{{patient.cnp}}</p>
+<p>{{patient.address}}</p>
+
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center border distancer">
+    <app-table-element
+      *ngFor="let medication of medications"
+      (medication)="medication"
+      [added]="true"
+    ></app-table-element>
+    <app-table-element (medicationEmitter)="addMed($event)" [added]="false"></app-table-element>
+  </li>
+</ul>

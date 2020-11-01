@@ -1,4 +1,4 @@
 export class Medicine {
-  public activeSubstance: string;
-  public concentration: string;
+  public activeSubstance: any;
+  public concentration: any;
 }
