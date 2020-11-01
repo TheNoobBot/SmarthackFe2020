@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      cnp: ['',],
+      cnp: ['', Validators.required],
       password: ['', Validators.required]
     });
 
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate(['home']);
         },
         error => {
           this.error = error;

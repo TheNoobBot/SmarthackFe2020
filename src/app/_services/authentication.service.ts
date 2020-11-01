@@ -33,6 +33,7 @@ export class AuthenticationService {
         console.log(token);
         localStorage.setItem('currentUser', JSON.stringify(token));
         this.currentUserSubject.next(token);
+        console.log('redirecting to home!');
         this.router.navigate(['home']);
       }));
   }

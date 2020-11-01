@@ -7,6 +7,7 @@ export class User {
   address: string;
   edoctor: boolean;
   epacient: boolean;
+  token?: string;
 }
 
 interface PatientDetails {

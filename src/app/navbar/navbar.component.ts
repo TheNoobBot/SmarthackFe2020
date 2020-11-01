@@ -19,10 +19,10 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 
   isDoctor() {
-    return this.authenticationService.currentUserValue.isDoctor;
+    return this.authenticationService.currentUserValue.edoctor;
   }
 }
