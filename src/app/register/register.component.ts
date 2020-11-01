@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    console.log(this.f.cnp.value);
     this.authenticationService.register(this.getRegisterDetails())
       .pipe(first())
       .subscribe(

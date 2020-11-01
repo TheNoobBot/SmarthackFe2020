@@ -25,4 +25,8 @@ export class PrescriptionService {
     //   deliveredCount: 2, insured: true, medicine: [], status: PrescriptionStatus.ACTIVE
     // }]);
   }
+
+  postResponse() {
+    this.http.post(this.URL, {all: 'done'});
+  }
 }

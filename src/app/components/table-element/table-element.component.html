@@ -1,25 +1,24 @@
 <form [formGroup]="medicationForm" (ngSubmit)="emit()">
   <div class="form-row align-items-center">
-
     <div class="col-auto">
       <label class="sr-only" for="name">Name</label>
-      <input type="text" class="form-control mb-2" disabled="{{added}}" formControlName="name" id="name" placeholder="Denumire">
+      <input *ngIf="!added; else CompFirst" type="text" class="form-control mb-2" formControlName="name" id="name" placeholder="Denumire">
+      <ng-template #CompFirst>
+        <input type="text" class="form-control mb-2"  disabled value="{{medication.activeSubstance}}">
+      </ng-template>
     </div>
 
     <div class="col-auto">
       <label class="sr-only" for="concentration">Username</label>
-      <input type="text" class="form-control" disabled="{{added}}" formControlName="concentration" id="concentration" placeholder="concentratie(mg.)">
+      <input *ngIf="!added; else CompFirst" type="text" class="form-control mb-2" formControlName="concentration" id="concentration" placeholder="concentratie(mg.)">
+      <ng-template #CompFirst>
+        <input type="text" class="form-control mb-2"  disabled value="{{medication.concentration}}">
+      </ng-template>
     </div>
 
-    <div class="col-auto" *ngIf="!added" (click)="emit()">
+    <div class="col-auto" *ngIf="!added">
       <button type="submit" class="btn btn-primary mb-2">
-        <img src="../../../assets/images/check.svg"/>
-      </button>
-    </div>
-
-    <div class="col-auto" *ngIf="added">
-      <button type="submit" class="btn btn-primary mb-2">
-        <img src="../../../assets/images/close.svg"/>
+        <img class="icon" src="../../../assets/images/check.svg"/>
       </button>
     </div>
 

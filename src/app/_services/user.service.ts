@@ -23,7 +23,7 @@ export class UserService {
     return this.http.get(this.URL + '/users/' + this.authService.currentUserValue.cnp);
   }
 
-  getPatient(id: string) {
-    return this.http.get(this.URL + '/users/' + id);
+  getPatient(id: string): Observable<Patient> {
+    return this.http.get<Patient>(this.URL + '/users/' + id);
   }
 }

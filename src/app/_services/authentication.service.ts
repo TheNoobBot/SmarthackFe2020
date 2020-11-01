@@ -25,15 +25,12 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    console.log(username);
     return this.http.post<any>(this.URL + 'authenticate', { username, password })
       .pipe(map(token => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         token.cnp = username;
-        console.log(token);
         localStorage.setItem('currentUser', JSON.stringify(token));
         this.currentUserSubject.next(token);
-        console.log('redirecting to home!');
         this.router.navigate(['home']);
       }));
   }
