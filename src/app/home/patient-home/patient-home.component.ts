@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PrescriptionService} from '../../_services/prescription.service';
+import {Prescription} from '../../domain/prescription.model';
 
 @Component({
   selector: 'app-patient-home',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-home.component.css']
 })
 export class PatientHomeComponent implements OnInit {
+  public prescriptions: Prescription[];
 
-  constructor() { }
+  constructor(private prescriptionService: PrescriptionService) { }
 
   ngOnInit(): void {
+    this.prescriptionService.getForCurrentUser().subscribe((data) => {
+      this.prescriptions = data;
+    });
   }
 
 }

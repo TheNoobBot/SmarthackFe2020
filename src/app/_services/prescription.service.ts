@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {AuthenticationService} from '@app/_services/authentication.service';
-import {Prescription} from '@app/domain/prescription.model';
+import {AuthenticationService} from './authentication.service';
+import {Prescription} from '../domain/prescription.model';
 
 
 @Injectable({ providedIn: 'root' })
