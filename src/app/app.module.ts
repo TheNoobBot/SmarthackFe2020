@@ -9,6 +9,8 @@ import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
+import { PatientHomeComponent } from './home/patient-home/patient-home.component';
+import { DoctorHomeComponent } from './home/doctor-home/doctor-home.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import {RouterModule} from '@angular/router';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    PatientHomeComponent,
+    DoctorHomeComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
