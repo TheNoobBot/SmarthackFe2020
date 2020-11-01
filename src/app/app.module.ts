@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import { PatientHomeComponent } from './home/patient-home/patient-home.component';
 import { DoctorHomeComponent } from './home/doctor-home/doctor-home.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     PatientHomeComponent,
     DoctorHomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
