@@ -13,7 +13,7 @@ export class PatientHomeComponent implements OnInit {
   constructor(private prescriptionService: PrescriptionService) { }
 
   ngOnInit(): void {
-    this.prescriptionService.getForCurrentUser().subscribe((data) => {
+    this.prescriptionService.getPrescriptionsForCurrentUser().subscribe((data) => {
       this.prescriptions = data;
     });
   }

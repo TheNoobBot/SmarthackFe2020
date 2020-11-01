@@ -1,20 +1,19 @@
+Patient View
 
-<div >
-</div>
-
-<div *ngFor="let prescription of prescriptions" class="card">
-  <img class="card-img-top" src="assets/images/prescription_background.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h4 class="card-title">{{prescription.recipeNumber}}</h4>
-    <h5 class="card-subtitle">{{prescription.diagnostic}}</h5>
-
-    <ul>
-      <li class="medicine-card" *ngFor="let medicine of prescription.medicine">
-        <p>{{medicine.activeSubstance}} - {{medicine.concentration}}</p>
-      </li>
-    </ul>
-
-    <p>Status: {{prescription.status}}</p>
-
+<div class="container py-5 bg-faded">
+  <div class="card-columns">
+    <div *ngFor="let prescription of prescriptions" class="card">
+      <img class="card-img-top" src="assets/images/prescription_background.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{prescription.recipeNumber}}</h4>
+        <h5 class="card-subtitle">{{prescription.diagnostic}}</h5>
+        <ul>
+          <li *ngFor="let medicine of prescription.medicine">
+            <p>{{medicine.activeSubstance}} - {{medicine.concentration}}</p>
+          </li>
+        </ul>
+        <p>Status: {{prescription.status}}</p>
+      </div>
+    </div>
   </div>
 </div>

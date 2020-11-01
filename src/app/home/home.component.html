@@ -1,3 +1,3 @@
-<div *ngIf="isDoctor(); then doctorHome else patientHome"></div>
+<div *ngIf="isDoctor; then doctorHome else patientHome"></div>
 <ng-template #doctorHome><app-doctor-home></app-doctor-home></ng-template>
 <ng-template #patientHome><app-patient-home></app-patient-home></ng-template>

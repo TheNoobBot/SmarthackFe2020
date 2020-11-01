@@ -15,7 +15,7 @@ interface PatientDetails {
 
 export type Patient = User & PatientDetails;
 
-export enum DoctorStatus {
+enum DoctorStatus {
   REGISTERED,
   CONFIRMED,
   DENIED

@@ -9,6 +9,7 @@ import {AuthenticationService} from '../_services/authentication.service';
 export class HomeComponent implements OnInit{
   loading = false;
   users: User[];
+  isDoctor: boolean;
 
   constructor(
     private userService: UserService,
@@ -17,13 +18,13 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     this.loading = true;
-    this.userService.getAll().pipe(first()).subscribe(users => {
-      this.loading = false;
-      this.users = users;
-    });
+    this.isUserDoctor();
   }
 
-  public isDoctor(): boolean {
-    return this.authService.currentUserValue.isDoctor;
+  public isUserDoctor(){
+    this.userService.isUserDoctor(this.authService.currentUserValue.cnp).subscribe((data) =>{
+      console.log(data);
+      this.isDoctor = data.edoctor;
+    });
   }
 }

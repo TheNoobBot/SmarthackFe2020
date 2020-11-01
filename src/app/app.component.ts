@@ -6,21 +6,17 @@ import {AuthenticationService} from './_services/authentication.service';
 
 @Component({ selector: 'app-root', templateUrl: 'app.component.html' })
 export class AppComponent {
-  currentUser: User | null;
+  currentUser: User;
 
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
   ) {
-    this.currentUser = this.authenticationService.currentUserValue;
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
-  }
-
-  isAuthenticated(): boolean {
-    return !!this.currentUser;
   }
 }

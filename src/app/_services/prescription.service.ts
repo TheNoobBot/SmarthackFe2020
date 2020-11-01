@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {AuthenticationService} from './authentication.service';
-import {Prescription, PrescriptionStatus} from '../domain/prescription.model';
-import {Observable, of} from 'rxjs';
+import {of} from 'rxjs';
+import {PrescriptionStatus} from '../domain/prescription.model';
 
 
 @Injectable({ providedIn: 'root' })
 export class PrescriptionService {
-  private URL = 'localhost:8080/api/prescriptions';
+  private URL = 'http://istvan.sudo.rocks:8080/smarthack-be/api';
+
 
   constructor(
     private http: HttpClient,
     private authService: AuthenticationService,
   ) {
-    this.URL = this.URL + '/' + this.authService.currentUserValue.cnp;
+    this.URL = this.URL + '/prescriptions/' + this.authService.currentUserValue.cnp;
+
   }
 
-  getForCurrentUser(): Observable<Prescription[]> {
+  getPrescriptionsForCurrentUser() {
+    // return this.http.get<Prescription[]>(this.URL);
     return of([{id: '1', location: 'str', diagnostic: 'str', recipeNumber: 'str', timestamp: 'str',
-    firstDelivery: 'str', recurrencyTime: 7, permanent: true, recurrencyCount: 4,
+      firstDelivery: 'str', recurrencyTime: 7, permanent: true, recurrencyCount: 4,
       deliveredCount: 2, insured: true, medicine: [], status: PrescriptionStatus.ACTIVE
     }]);
-    // return this.http.get<Prescription[]>(this.URL);
   }
 }
