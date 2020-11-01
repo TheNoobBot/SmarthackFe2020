@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "smart-hack"
+  "defaultProject": "smart-hack",
+  "cli": {
+    "analytics": false
+  }
 }

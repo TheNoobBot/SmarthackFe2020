@@ -7,6 +7,10 @@
   margin-bottom: 10px;
 }
 
+.distancer:hover {
+  cursor: pointer;
+}
+
 .padd {
   padding-left: 10px;
 }
