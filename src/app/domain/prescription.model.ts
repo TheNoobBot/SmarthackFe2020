@@ -21,4 +21,5 @@ export class Prescription {
   public status: PrescriptionStatus;
   public insured: boolean;
   public medicine: Medicine[];
+  public items: string;
 }
