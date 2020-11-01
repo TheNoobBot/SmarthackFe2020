@@ -1,1 +1,6 @@
-<p>doctor-home works!</p>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center border distancer" *ngFor="let patient of patients">
+    <app-patient-component [patient]="patient"></app-patient-component>
+    <img class="selection-arrow border-left padd" src="../../../assets/images/next.svg"/>
+  </li>
+</ul>

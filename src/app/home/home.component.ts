@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit{
 
   public isUserDoctor(){
     this.userService.isUserDoctor(this.authService.currentUserValue.cnp).subscribe((data) =>{
-      console.log(data);
       this.isDoctor = data.edoctor;
     });
   }

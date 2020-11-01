@@ -13,6 +13,7 @@ import { PatientHomeComponent } from './home/patient-home/patient-home.component
 import { DoctorHomeComponent } from './home/doctor-home/doctor-home.component';
 import { RegisterComponent } from './register/register.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import { PatientComponentComponent } from './components/patient-component/patient-component.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {NavbarComponent} from './navbar/navbar.component';
     PatientHomeComponent,
     DoctorHomeComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    PatientComponentComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -1,7 +1,11 @@
 .my-navbar {
-  width: 100%;
+  margin-bottom: 10px;
 }
 
 .logout-btn {
   float: right;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
 }
