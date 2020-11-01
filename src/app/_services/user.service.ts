@@ -12,4 +12,6 @@ export class UserService {
   getAll() {
     return this.http.get<User[]>(this.URL);
   }
+
+
 }

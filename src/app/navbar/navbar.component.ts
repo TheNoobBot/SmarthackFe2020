@@ -21,4 +21,8 @@ export class NavbarComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
+
+  isDoctor() {
+    return this.authenticationService.currentUserValue.isDoctor;
+  }
 }
