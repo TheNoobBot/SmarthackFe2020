@@ -12,12 +12,12 @@ export class DoctorHomeComponent implements OnInit {
   public patients: Patient[];
   searchValue: string;
   public currentPatient: Patient;
+  error: boolean;
 
   constructor(
     private userService: UserService,
     private router: Router,
   ) {
-    console.log('sdjkhcskdjchskdjchsdc');
   }
 
   ngOnInit(): void {
@@ -28,15 +28,19 @@ export class DoctorHomeComponent implements OnInit {
   }
 
   goto(patient: Patient) {
-    console.log('fuck you you piece of shit');
     this.router.navigate(['user'], { queryParams: { patientCNP: patient.cnp } });
   }
 
   filterPatients() {
-    this.userService.getPatientDetails(this.searchValue).subscribe((patient) => {
-      console.log(patient);
-      this.currentPatient = patient;
-      this.patients = [];
+    this.userService.searchPatients(this.searchValue).subscribe((patients) => {
+      if (patients.length){
+        this.error = false;
+        this.patients = patients;
+      }
+      else{
+        this.error = true;
+        this.patients = [];
+      }
     });
   }
 }

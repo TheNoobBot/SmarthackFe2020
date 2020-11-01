@@ -23,7 +23,7 @@ export class UserService {
     return this.http.get(this.URL + '/users/' + this.authService.currentUserValue.cnp);
   }
 
-  getPatientDetails(cnp: string): Observable<any>{
-    return this.http.get(this.URL + '/users/' + cnp);
+  searchPatients(cnp: string): Observable<any>{
+    return this.http.get(this.URL + '/users?cnp=' + cnp + '&doctorCnp=' + this.authService.currentUserValue.cnp);
   }
 }
