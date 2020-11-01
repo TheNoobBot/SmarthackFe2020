@@ -21,7 +21,7 @@ export class PatientPageComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.patient);
     this.route.queryParams.subscribe(params => {
-      this.userService.getPatient(params.patientId).subscribe((patient: Patient) => {
+      this.userService.getPatientDetails(params.patientId).subscribe((patient: Patient) => {
         this.patient = patient;
       });
     });

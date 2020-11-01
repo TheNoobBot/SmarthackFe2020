@@ -1,11 +1,9 @@
-.my-navbar {
-  margin-bottom: 10px;
+.form-inline{
+  width: 100%;
 }
 
-.logout-btn {
-  float: right;
+.form-control{
+  width: 80%;
+  margin: 0 auto;
 }
 
-.logout-btn:hover {
-  cursor: pointer;
-}

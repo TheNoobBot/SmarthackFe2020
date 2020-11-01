@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 })
 export class DoctorHomeComponent implements OnInit {
   public patients: Patient[];
+  searchValue: string;
+  public currentPatient: Patient;
 
   constructor(
     private userService: UserService,
@@ -28,5 +30,13 @@ export class DoctorHomeComponent implements OnInit {
   goto(patient: Patient) {
     console.log('fuck you you piece of shit');
     this.router.navigate(['user'], { queryParams: { patientCNP: patient.cnp } });
+  }
+
+  filterPatients() {
+    this.userService.getPatientDetails(this.searchValue).subscribe((patient) => {
+      console.log(patient);
+      this.currentPatient = patient;
+      this.patients = [];
+    });
   }
 }
