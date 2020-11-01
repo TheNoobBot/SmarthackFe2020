@@ -4,11 +4,11 @@
     <div class="card-body">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="username">CNP</label>
-          <input type="text" formControlName="username" class="form-control"
+          <label for="cnp">CNP</label>
+          <input type="text" formControlName="cnp" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.cnp.errors }"/>
           <div *ngIf="submitted && f.cnp.errors" class="invalid-feedback">
-            <div *ngIf="f.cnp.errors.required">Username is required</div>
+            <div *ngIf="f.cnp.errors.required">CNP-ul e obligatoriu!</div>
           </div>
         </div>
         <div class="form-group">
@@ -16,7 +16,7 @@
           <input type="password" formControlName="password" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.required">Parola e obligatorie</div>
           </div>
         </div>
         <button [disabled]="loading" class="btn btn-primary">

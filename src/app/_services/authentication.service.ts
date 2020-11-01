@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-  private URL = 'localhost:8080/api/login';
+  private URL = 'http://istvan.sudo.rocks:8080/smarthack-be/api/';
 
 
   private currentUserSubject: BehaviorSubject<User>;
@@ -24,7 +24,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(this.URL, { username, password })
+    return this.http.post<any>(this.URL + 'authenticate', { username, password })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -34,7 +34,7 @@ export class AuthenticationService {
   }
 
   register(registrationDetails: RegistrationDetails) {
-    return this.http.post<any>(this.URL, registrationDetails)
+    return this.http.post<any>(this.URL + 'register', registrationDetails)
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         this.router.navigate(['']);

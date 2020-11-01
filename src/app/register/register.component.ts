@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       cnp: ['', Validators.required],
       password: ['', Validators.required],
       address: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', ],
     });
 
     // get return url from route parameters or default to '/'
