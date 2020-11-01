@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    console.log(this.f.cnp.value);
     this.authenticationService.login(this.f.cnp.value, this.f.password.value)
       .pipe(first())
       .subscribe(
